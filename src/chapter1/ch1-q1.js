@@ -11,7 +11,15 @@
  * @return {boolean}      True if unique characters, otherwise false
  */
 export function hasUniqueCharactersSet(str) {
- 
+  var currentSet = new Set();
+  for (var i = 0; i < str.length; i++){
+    if(currentSet.has(str[i])){
+      return false
+    } else {
+      currentSet.add(str[i])
+    }
+  }
+  return true
 }
 
 /**
@@ -28,9 +36,8 @@ export function hasUniqueCharactersSet(str) {
 export function hasUniqueCharactersSort(str) {
   // sort string using quicksort
   str.sort();
-
-  for (var i = 1; i < str.length; ++i) {
-    if (str[i] === str[i - 1]) {
+  for (var i = 0; i < str.length; i ++){
+    if (str[i] === str[i + 1]){
       return false;
     }
   }

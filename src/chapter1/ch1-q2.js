@@ -14,8 +14,23 @@
  * @return {boolean}       True if first and second strings are permutations otherwise false
  */
 export function isPermutationMap(str1, str2) {
- 
- 
+  var hashmap = new Map();
+
+  for (var i = 0; i < str1.length; i++){
+    if (!hashmap.get(str1[i])){
+      hashmap.set(str1[i], 1);
+    } else {
+      var counter = hashmap.get(str[i]);
+      hashmap.set(str1[i], counter+1);
+    }
+  };
+  for (i = 0; i < str2.length; i ++){
+    if (!hashmap.get(str2[i])){
+
+    }
+  }
+
+  for (var i )
 }
 
 /**
@@ -31,12 +46,5 @@ export function isPermutationMap(str1, str2) {
  * @return {boolean}       True if first and second strings are permutations otherwise false
  */
 export function isPermutationSorted(str1, str2) {
-  if (str1.length === 0 || str1.length !== str2.length) {
-    return false;
-  }
-  // sort string using quicksort
-  str1.sort();
-  str2.sort();
 
-  return str1.every((v, i) => v === str2[i]);
 }
