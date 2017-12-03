@@ -45,21 +45,5 @@ export function kthToLastTwoPointers(list, k) {
  * Additional space: O(1)
  */
 export function kthToLastLength(list, k) {
-  if (!list) {
-    throw new Error('invalid list');
-  }
-
-  let len = getLength(list),
-    skip = len - k,
-    node = list;
-
-  if (skip <= 0) {
-    throw new Error('list is not long enough');
-  }
-
-  for (let i = 1; i < skip; ++i) {
-    node = node.next;
-  }
-
-  return node.val;
+ 
 }
