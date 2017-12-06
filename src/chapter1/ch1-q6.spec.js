@@ -19,8 +19,7 @@ for (let key in funcs) {
       'a',
       'aa',
       'abc',
-      'aabbcc',
-      'ababababccab'
+      'aabbcc'
     ].forEach(arg => {
 
       it(`returns input string where compression doesn't use less space: '${arg}'`, function() {
