@@ -9,5 +9,20 @@
  * Additional space: O(N)
  */
 export function removeDuplicatesSet(list) {
- 
+  if (!list){
+    return list
+  }
+
+  var resultSet = new Set();
+  resultSet.add(list.val);
+  var node = list;
+  while(node.next){
+    if (resultSet.has(node.next.val)){
+      node.next = node.next.next
+    } else {
+      resultSet.add(node.next.val)
+      node = node.next
+      }
+    }
+  return list;
 }
