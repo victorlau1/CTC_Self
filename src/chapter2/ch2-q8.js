@@ -10,7 +10,18 @@
  * Additional space: O(N)
  */
 export function findStartOfLoopSet(list) {
+  var seen = new Set();
 
+  while (list){
+    if (seen.has(list.val)){
+      return list
+    } else {
+      seen.add(list.val)
+    }
+    list = list.next
+  }
+
+  return null;
 }
 
 /**
@@ -27,5 +38,17 @@ export function findStartOfLoopSet(list) {
  * Additional space: O(1)
  */
 export function findStartOfLoop(list) {
+  let rabbit = list
+  let turtle = list
+
+  while (rabbit && rabbit.next){
+    rabbit = rabbit.next.next ;
+    turtle = turtle.next;
+    if (rabbit === turtle){
+      return rabbit;
+    }
+  }
+
+  return null;
 
 }
