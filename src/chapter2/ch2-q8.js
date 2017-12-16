@@ -45,8 +45,22 @@ export function findStartOfLoop(list) {
     rabbit = rabbit.next.next ;
     turtle = turtle.next;
     if (rabbit === turtle){
+      break;
+    }
+  }
+
+  if (!turtle || !rabbit){
+    return null;
+  }
+
+  
+  rabbit = list;
+  while (rabbit && rabbit.next){
+    if (rabbit === turtle){
       return rabbit;
     }
+    rabbit = rabbit.next;
+    turtle = turtle.next;
   }
 
   return null;
