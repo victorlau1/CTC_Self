@@ -15,5 +15,43 @@ import { getLength } from './helpers';
  * Additional space: O(1)
  */
 export function doIntersect(list1, list2) {
- 
+
+  let node1 = list1;
+  let node2 = list2;
+  let counter1 = 0;
+  let counter2 = 0;
+  let head1 = list1;
+  let head2 = list2;
+
+  while (node1){
+    counter1++;
+    node1 = node1.next;
+  }
+
+  while(node2) {
+    counter2++;
+    node2 = node2.next;
+  }
+
+  if (counter2 > counter1){
+    while (counter2 - counter1 > 0){
+      --counter2;
+      head2 = head2.next;
+    }  
+  } else if (counter1 > counter2){
+    while(counter1 - counter2  > 0){
+      --counter1;
+      head1 = head1.next;
+    }
+  }
+  
+  let intersection;
+  while(head1 && head2){
+   if (head1.val === head2.val){
+     return head1
+   }
+   head1 = head1.next;
+   head2 = head2.next;
+  }
+  return intersection;
 }
