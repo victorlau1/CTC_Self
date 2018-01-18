@@ -8,5 +8,10 @@
  * Additional space: O(1)
  */
 export function deleteMiddleNode(node) {
-  
+  try {
+    node.val = node.next.val;
+    node.next = node.next.next;
+  } catch (err){
+    throw new Error('invalid node')
+  }
 }
