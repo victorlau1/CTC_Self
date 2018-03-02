@@ -14,11 +14,13 @@
  * @return {boolean}        True if str1 and str2 are rotated versions of eachother, otherwise false
  */
 export function isRotatedSubstring(str1, str2) {
+  str2 += str2;
 
+  return isSubstring(str2, str1)
 }
 
 // Implementation of isSubstring function which is defined in question
 // can only be called once
 function isSubstring(str, substr) {
-
+  return str.includes(substr);
 }
